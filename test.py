@@ -1,3 +1,5 @@
+# a test comment, to be added to the github repository, I hope
+
 import area
 
 a = area.new()
