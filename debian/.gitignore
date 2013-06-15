@@ -1,0 +1,7 @@
+files
+python-area.debhelper.log
+python-area.postinst.debhelper
+python-area.prerm.debhelper
+python-area.substvars
+python-area/
+substvars
