@@ -76,6 +76,17 @@ set(AREA_SRC
     ${area_SOURCE_DIR}/kurve/offset.cpp
 )
 
+# this defines the headers
+if(DEFINED INCLUDE_INSTALL_DIR)
+  set(includedir ${INCLUDE_INSTALL_DIR})
+else(DEFINED INCLUDE_INSTALL_DIR)
+  set(INCLUDE_INSTALL_DIR include)
+  set(includedir ${CMAKE_INSTALL_PREFIX}/${INCLUDE_INSTALL_DIR})
+endif(DEFINED INCLUDE_INSTALL_DIR)
+
+file(GLOB headers "${CMAKE_CURRENT_SOURCE_DIR}/*.h")
+install(FILES ${headers} DESTINATION ${INCLUDE_INSTALL_DIR}/area COMPONENT headers)
+
 # include directories
 include_directories( 
     ${area_SOURCE_DIR} 
