@@ -1,7 +1,7 @@
 Source: libarea
 Priority: extra
 Maintainer: Romuald Conty <neomilium@gmail.com>
-Build-Depends: debhelper (>= 8), python-dev (>=2.6.6-3~), libboost-python-dev
+Build-Depends: debhelper (>= 8), python-dev (>=2.6.6-3~), libboost-python-dev, cmake
 Standards-Version: 3.9.3
 Section: python
 Homepage: https://github.com/Heeks/libarea/
