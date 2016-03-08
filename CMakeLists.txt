@@ -96,7 +96,7 @@ include_directories(${CMAKE_CURRENT_BINARY_DIR})
 
 # this defines the source-files
 set(AREA_SRC
-	${area_SOURCE_DIR}/PythonStuff.cpp
+    ${area_SOURCE_DIR}/PythonStuff.cpp
 
     ${area_SOURCE_DIR}/Arc.cpp
     ${area_SOURCE_DIR}/Area.cpp
@@ -126,11 +126,22 @@ set(AREA_SRC
     ${area_SOURCE_DIR}/kurve/offset.cpp
 )
 
+# this defines the headers
+if(DEFINED INCLUDE_INSTALL_DIR)
+  set(includedir ${INCLUDE_INSTALL_DIR})
+else(DEFINED INCLUDE_INSTALL_DIR)
+  set(INCLUDE_INSTALL_DIR include)
+  set(includedir ${CMAKE_INSTALL_PREFIX}/${INCLUDE_INSTALL_DIR})
+endif(DEFINED INCLUDE_INSTALL_DIR)
+
+file(GLOB headers "${CMAKE_CURRENT_SOURCE_DIR}/*.h")
+install(FILES ${headers} DESTINATION ${INCLUDE_INSTALL_DIR}/area COMPONENT headers)
+
 # include directories
 include_directories( 
-	${area_SOURCE_DIR} 
-	${area_SOURCE_DIR}/kurve/
-	${area_SOURCE_DIR}/kbool/src/
+    ${area_SOURCE_DIR} 
+    ${area_SOURCE_DIR}/kurve/
+    ${area_SOURCE_DIR}/kbool/src/
 )
 
 # this makes the Python module
@@ -142,10 +153,7 @@ add_library(
 target_link_libraries(area ${Boost_LIBRARIES} ${PYTHON_LIBRARY})
 set_target_properties(area PROPERTIES PREFIX "") 
 
-
-#
 # this figures out where to install the Python modules
-#
 execute_process(
     COMMAND "${PYTHON_DIR}python" -c "from distutils.sysconfig import get_python_lib; print get_python_lib()"
     OUTPUT_VARIABLE Python_site_packages
@@ -159,4 +167,3 @@ install(
 	TARGETS area
 	LIBRARY DESTINATION ${Python_site_packages}
 )
-

@@ -1,10 +1,12 @@
 Source: libarea
 Priority: extra
-Maintainer: Joachim Steiger <ubuntu@hyte.de>
-Build-Depends: debhelper (>= 6), python-dev, python-support, libboost-python-dev
-Standards-Version: 3.8.4.0
+Maintainer: Romuald Conty <neomilium@gmail.com>
+Build-Depends: debhelper (>= 8), python-dev (>=2.6.6-3~), libboost-python-dev, cmake
+Standards-Version: 3.9.3
 Section: python
-Homepage: http://code.google.com/p/libarea/
+Homepage: https://github.com/Heeks/libarea/
+Vcs-Git: git://github.com/Heeks/libarea
+Vcs-Browser: https://github.com/Heeks/libarea
 
 Package: python-area
 Architecture: any
@@ -14,5 +16,6 @@ Description: Area C++ class with a Python module
  http://boolean.klaasholwerda.nl/bool.html.
  .
  This package contains the shared library.
- .
+
+
 

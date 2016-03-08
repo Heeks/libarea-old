@@ -1,3 +1,9 @@
+libarea (0.0.20130701-1) unstable; urgency=low
+
+  * Use CMake instead of Makefile
+
+ -- Romuald Conty <neomilium@gmail.com>  Tue, 08 Apr 2014 15:42:42 +0100
+
 libarea (0.0.2) karmic; urgency=low
 
   * Fix some minor debian package issues.
